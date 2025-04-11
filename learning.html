@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Quizo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Oregano&family=Bright+Sunshine&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+    <style>
+        body {
+            background-image: url('Background.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 3em;
+            font-family: 'Bright Sunshine', cursive; /* Updated font for heading */
+        }
+        .subject-container {
+            display: grid;  
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-top: 5px;
+        }
+        .subject {
+            text-align: center;
+        }
+        .subject img {
+            width: 400px;
+            height: 400px;
+            border-radius: 10px;
+            transition: transform 0.2s;
+        }
+        .subject img:hover {
+            transform: scale(1.05);
+        }
+        .subject-name {
+            margin: 5px 0 0 0; /* Small margin on top */
+            padding: 0; /* No padding */
+            font-size: 2.2em;
+            font-family: 'Oregano', cursive; /* Updated font for subject names */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>EXPLORE YOUR SUBJECTS</h1>
+
+    <div class="subject-container">
+        <div class="subject">
+            <a href="Engineering Mathematics - 1.html">
+                <img src="engineeringmaths1.png" alt="ENGINEERING MATHS - 1">
+            </a>
+            <div class="subject-name">ENGINEERING <br> MATHS - 1</div>
+        </div>
+        <div class="subject">
+            <a href="C Programming.html">
+                <img src="cprogramming.png" alt="C PROGRAMMING">
+            </a>
+            <div class="subject-name">C <br> PROGRAMMING</div>
+        </div>
+        <div class="subject">
+            <a href="BEEE.html">
+                <img src="BEEE.png" alt="BEEE">
+            </a>
+            <div class="subject-name">BEEE</div>
+        </div>
+        <div class="subject">
+            <a href="Engineering Mathematics - 2.html">
+                <img src="engineeringmaths2.png" alt="ENGINEERING MATHS - 2">
+            </a>
+            <div class="subject-name">ENGINEERING<br> MATHS - 2</div>
+        </div>
+        <div class="subject">
+            <a href="C++ Programming.html">
+                <img src="c++programming.png" alt="C++">
+            </a>
+            <div class="subject-name">C++ <br> PROGRAMMING</div>
+        </div>
+        <div class="subject">
+            <a href="Digital Electronics.html">
+                <img src="digitalelectronic.png" alt="DIGITAL ELECTRONICS">
+            </a>
+            <div class="subject-name">DIGITAL <br> ELECTRONICS</div>
+        </div>
+    </div>
+
+</body>
+</html>

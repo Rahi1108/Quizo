@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Rules List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #00509e;
+            margin-bottom: 20px;
+            animation: slideInDown 1s ease;
+        }
+
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: left;
+            width: 70%;
+            max-width: 600px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .modal-content h2 {
+            font-size: 2em;
+            color: #00509e;
+            margin-bottom: 20px;
+        }
+
+        .modal-content ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .modal-content ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            opacity: 0;
+            animation: fadeInRule 0.5s ease forwards;
+            animation-delay: calc(0.1s * var(--i));
+        }
+
+        .modal-content ul li::before {
+            content: "•";
+            color: #28a745;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.5em;
+        }
+
+        .close-button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .close-button:hover {
+            background-color: #c82333;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRule {
+            0% {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Test Rules List</h1>
+
+    <button class="button" onclick="openModal()">Show Test Rules</button>
+
+    <!-- Modal Structure -->
+    <div id="rulesModal" class="modal">
+        <div class="modal-content">
+            <h2>Important Test Rules</h2>
+            <ul id="rulesList">
+                <!-- Rules will be inserted here -->
+            </ul>
+            <button class="close-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Array of test rules
+        const rules = [
+            "No calculators are allowed during the test.",
+            "You will have 90 minutes to complete the test.",
+            "Leaving the room during the test is prohibited.",
+            "Answer all questions before submitting the test.",
+            "Discussion during the test is strictly forbidden.",
+            "Only one page of scratch paper is allowed.",
+            "Ensure your ID is visible at all times during the test.",
+            "Electronic devices must be turned off and placed away.",
+            "The test will cover all materials from the last three lectures.",
+            "There will be no retakes for this test."
+        ];
+
+        // Function to open the modal and display all the rules
+        function openModal() {
+            const rulesListElement = document.getElementById("rulesList");
+
+            // Clear previous rules (if any)
+            rulesListElement.innerHTML = "";
+
+            // Add each rule to the modal with animation delay
+            rules.forEach((rule, index) => {
+                const listItem = document.createElement("li");
+                listItem.textContent = rule;
+                listItem.style.setProperty('--i', index); // Animation delay based on index
+                rulesListElement.appendChild(listItem);
+            });
+
+            const modal = document.getElementById("rulesModal");
+            modal.style.display = "flex"; // Show the modal
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById("rulesModal");
+            modal.style.display = "none"; // Hide the modal
+        }
+
+        // Close the modal when clicking outside of the content
+        window.onclick = function(event) {
+            const modal = document.getElementById("rulesModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
