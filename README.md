@@ -18,3 +18,6 @@ Prevent Skipping – Users must select an answer before moving to the next quest
 HTML5 – Structure & layout
 CSS3 – Styling & responsiveness
 JavaScript (Vanilla) – Core quiz logic, DOM updates, and user interaction handling
+
+#Codes:
+The project codes are availabe on th esecond branch of this repo.
